@@ -4,13 +4,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @ComponentScan("com.tpe")
 @EnableWebMvc//Mvc yi aktifleştirir
-public class WebMvcConfig {
+public class WebMvcConfig implements WebMvcConfigurer {
 
 //wiev reslver
 
@@ -23,5 +25,15 @@ public class WebMvcConfig {
         //JSTL: JavaStandartTabLibrary: JSP içinde daha az java kodu yazmamızı sağlar
         return resolver;
     }
+//handlemaping: statik sayfa içeren bir istek geldiği zaman servlat a yönlendirmeden direkt kullanıcıya
+//sorulmasını sağlar.
 
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/statics/**").   //gelen istekleri sunma
+                addResourceLocations("/resources/").
+                setCachePeriod(0);
+
+    }
 }
