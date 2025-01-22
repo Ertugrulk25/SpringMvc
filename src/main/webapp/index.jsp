@@ -16,6 +16,8 @@
 <h2>STUDENT MANAGEMENT SYSTEM</h2>
 <p><a class="normal" href="${pageContext.request.contextPath}/students/">List Student</a></p>
 <p><a class="normal" href="${pageContext.request.contextPath}/students/new">Add Student</a></p>
+<p><a class="normal" href="${pageContext.request.contextPath}/courses">Courses</a></p>
 </div>
 </body>
+</html>
 </html>

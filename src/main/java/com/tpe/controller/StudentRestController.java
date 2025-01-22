@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 //@Controller
-@RestController//bu classta restful serviceler geliştirilecek
+@RestController
+//Bu sınıfın bir RESTful web servisi olarak çalışacağını belirtir.
+//Metotlardan dönen veriler, otomatik olarak JSON formatına dönüştürülerek istemciye iletilir.
 @RequestMapping("/api")
+//Sınıfın tüm HTTP endpoint'lerinin /api ile başlamasını sağlar.
+//Örneğin, /all endpoint'i aslında /api/all URL'si olarak erişilebilir hale gelir.
 public class StudentRestController {
 
     private final IStudentService service;
