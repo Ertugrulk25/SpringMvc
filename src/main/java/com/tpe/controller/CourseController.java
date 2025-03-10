@@ -45,7 +45,7 @@ public class CourseController {
     //Task 3:yeni bir kursu tabloya ekleyelim
     //request:http://localhost:8080/SpringMVC/save + POST
     //response: yeni kurs bilgileri tabloya eklenir, course listesine yeniden yönlendirir
-     @RequestMapping("/save")
+    @RequestMapping("/save")
     @PostMapping
     public String addCourse(@Valid @ModelAttribute("course") Course course, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
